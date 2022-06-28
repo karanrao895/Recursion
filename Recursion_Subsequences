@@ -1,0 +1,40 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+int cnt=0;
+void subsequences(string &a,vector<char> &v,int idx){
+    //base case
+    if(idx==a.size()){
+        for(auto it : v){
+            cout<<it;
+            
+        }
+        cnt++;
+        cout<<" ";
+        return;
+    }
+    //recursive case
+    
+    //for not taking
+    subsequences(a,v,idx+1);
+    
+    //for taking
+    v.push_back(a[idx]);
+    subsequences(a,v,idx+1);
+    v.pop_back();
+    
+    
+    
+}
+int main() {
+	// your code goes here
+	
+	string a;
+	cin>>a;
+	vector<char>v;
+	subsequences(a,v,0);
+	cout<<endl;
+	cout<<cnt<<endl;
+	
+	return 0;
+}
